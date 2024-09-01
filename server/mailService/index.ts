@@ -27,7 +27,7 @@ export const setEmailBody = async (
       body = `
             <div>
                 <h2>Welcome to Price Tracker!</h2>
-                <p>We're excited to have you track the price of the "${snippedTitle}" product.</p>
+                <p>We are excited to have you track the price of the "${snippedTitle}" product.</p>
                 <p>Here is the original product URL:</p>
                 <p><a href="${product.url}" target="_blank">${product.url}</a></p>
                 <p>Thank you for choosing PriceTracer!</p>

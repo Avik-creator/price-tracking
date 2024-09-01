@@ -15,7 +15,7 @@ const page = async () => {
           This is a one stop solution for all your price tracking needs, just
           enter the product link and we will handle the rest, want to get
           automatic updates without the hassle of going through the product
-          again and again, don't worry, we got you covered
+          again and again, do not worry, we got you covered
         </h1>
         <div className="flex flex-col">
           <div className="flex items-center mt-8 w-full">

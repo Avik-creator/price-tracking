@@ -44,18 +44,26 @@ export function getCategory(...elements: any) {
   return "";
 }
 
-export const getLowestPrice = (priceHistory: Array<{ price: number }>) => {
-  return priceHistory.reduce((acc, curr) => {
-    return acc.price < curr.price ? acc : curr;
-  });
+export const getLowestPrice = (
+  priceHistory: Array<{ price: number }>
+): number => {
+  if (priceHistory.length === 0) return 0;
+  return Math.min(...priceHistory.map((item) => item.price));
 };
 
-export const getAveragePrice = (priceHistory: Array<{ price: number }>) => {
-  return (
-    priceHistory.reduce((acc, curr) => {
-      return acc + curr.price;
-    }, 0) / priceHistory.length
-  );
+export const getHighestPrice = (
+  priceHistory: Array<{ price: number }>
+): number => {
+  if (priceHistory.length === 0) return 0;
+  return Math.max(...priceHistory.map((item) => item.price));
+};
+
+export const getAveragePrice = (
+  priceHistory: Array<{ price: number }>
+): number => {
+  if (priceHistory.length === 0) return 0;
+  const sum = priceHistory.reduce((acc, curr) => acc + curr.price, 0);
+  return Math.round(sum / priceHistory.length);
 };
 
 export const emailRemindType = (scrappedProduct: any, currentProduct: any) => {
@@ -72,10 +80,4 @@ export const emailRemindType = (scrappedProduct: any, currentProduct: any) => {
   if (scrappedProduct.discountRate >= THRESHOLD) {
     return type.THRESHOLD;
   }
-};
-
-export const getHighestPrice = (priceHistory: Array<{ price: number }>) => {
-  return priceHistory.reduce((acc, curr) => {
-    return acc.price > curr.price ? acc : curr;
-  });
 };
